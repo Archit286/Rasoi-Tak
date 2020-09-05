@@ -1,0 +1,467 @@
+body {
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+#root {
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 9rem;
+}
+
+/* Header starts */
+
+.navbar-nav {
+  width: 100%;
+}
+
+.navbar-toggler {
+  border: 2px solid #ffaa00 !important;
+}
+
+.navbar-toggler:focus {
+  outline: none;
+}
+
+nav {
+  border-bottom: 2px solid #ffaa00;
+  background-color: #fff;
+}
+
+.navbar-brand {
+  padding-left: 20px !important;
+}
+
+.nav-link {
+  color: #ffaa00 !important;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.nav-link i {
+  padding-top: 8px;
+}
+
+.nav-link:hover {
+  color: #ffaa00 !important;
+}
+
+.nav-link:focus {
+  background-color: #fff !important;
+}
+
+.search {
+  border: 2px solid #ffaa00;
+  border-radius: 25px;
+  line-height: 1.15rem;
+  padding: 5px;
+  width: 60%;
+  margin: auto;
+}
+
+.search input {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  border: 0;
+  margin: 5px;
+  width: 80%;
+}
+
+.search input:focus {
+  outline: none;
+}
+
+.search svg {
+  font-size: 1.25em;
+}
+
+.dropdown-item {
+  color: #ffaa00;
+}
+
+.dropdown-item:hover {
+  color: #ffaa00;
+  background-color: #e8e8e8;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* header ends */
+
+/* Footer starts */
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 8rem;
+  margin-top: 20px;
+  border-top: 2px solid #ffaa00;
+  background-color: #fff;
+  color: #ffaa00;
+  text-align: center;
+}
+
+footer h3 {
+  margin-top: 5px;
+}
+
+/* Footer ends */
+
+/* Slideshow begins */
+
+.carousel {
+  height: 500px;
+}
+
+.carousel img {
+  object-fit: cover;
+  display: inline-block;
+  height: 500px;
+}
+
+.carousel-caption {
+  bottom: 0%;
+  left: 0%;
+  right: 0%;
+  width: 100%;
+  height: 20%;
+  padding-top: 10px;
+  vertical-align: middle;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.3);
+  font-weight: bold;
+  color: #fff;
+  font-style: italic;
+}
+
+/* Slideshow ends */
+
+/* Card begin */
+
+.card {
+  height: 300px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 10px;
+  position: relative;
+}
+
+.cardbtn {
+  background-color: #ffaa00;
+  color: #fff;
+  padding: 0.5rem;
+  border-radius: 0.25em;
+  outline: none;
+  border: none;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+}
+
+.cardbtn:hover {
+  background-color: #fd7e14;
+  text-decoration: none;
+  color: #fff;
+}
+
+.cardbtn:focus {
+  background-color: #fd7e14;
+  outline: none;
+}
+
+/* Card Ends */
+
+.slick-slide div:focus {
+  outline: none;
+}
+
+.common-title {
+  color: #ffaa00;
+  border-bottom: 2px solid #ffaa00;
+  margin: 20px 10px 20px;
+  padding-bottom: 5px;
+  text-align: left;
+}
+
+.result {
+  color: #ffaa00;
+  border-bottom: 1px solid #ffaa00;
+  margin: 10px;
+}
+
+/* Post Begins */
+
+.post {
+  margin-top: 15px;
+}
+
+.post h2 {
+  color: #ffaa00;
+  border-bottom: 1px solid #ffaa00;
+  text-align: center;
+}
+
+.post p {
+  text-align: center;
+}
+
+.post iframe {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.post li {
+  text-align: justify;
+  list-style-type: ">";
+  padding-bottom: 5px;
+}
+
+.post ul {
+  margin: 10px;
+  padding-left: 20px;
+}
+
+.headers {
+  color: #ffaa00;
+  font-weight: bold;
+  margin-top: 20px;
+  padding: 0.75rem;
+  border-top: 1px solid #ffaa00;
+  border-bottom: 1px solid #ffaa00;
+}
+
+.share {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.share-btn {
+  color: #ffaa00;
+  border: 1px solid #ffaa00;
+  margin: 0px 5px 0px;
+  border-radius: 50%;
+  padding: 5px 10px 5px;
+}
+
+.share-btn :hover,
+.share :hover {
+  background-color: #ffaa00;
+  color: white;
+}
+
+/* Post Ends */
+
+/* About page */
+
+.about-body {
+  font-size: large;
+  margin-bottom: 20px;
+}
+
+.about-pic {
+  width: 90%;
+  text-align: center;
+  border-radius: 10%;
+  margin-top: 30px;
+}
+
+.about-link {
+  color: #ffaa00;
+  font-weight: bold;
+}
+
+.about-link:hover {
+  color: #fd7e14;
+}
+
+.about-mail {
+  padding-left: 5%;
+}
+
+/* About Ends */
+
+/* Media Queries */
+
+/*XXS*/
+@media (max-width: 380px) {
+  .carousel {
+    height: 300px;
+  }
+
+  .carousel img {
+    height: 300px;
+  }
+
+  .carousel-caption {
+    height: 30%;
+  }
+
+  .carousel-caption h3 {
+    font-size: 1.25rem;
+  }
+
+  #root {
+    padding-bottom: 7rem;
+  }
+
+  footer {
+    height: 6rem;
+  }
+
+  footer h3 {
+    font-size: 1.5rem;
+  }
+
+  .footer-icons {
+    font-size: 1.25em;
+  }
+
+  footer span {
+    font-size: 0.75rem;
+  }
+
+  .post iframe {
+    width: 80%;
+    height: 180px;
+  }
+}
+
+/*XS*/
+@media (min-width: 380px) {
+  .carousel {
+    height: 300px;
+  }
+
+  .carousel img {
+    height: 300px;
+  }
+
+  .carousel-caption {
+    height: 30%;
+  }
+
+  .carousel-caption h3 {
+    font-size: 1.25rem;
+  }
+
+  .card-img {
+    height: 50%;
+    display: inline-block;
+    object-fit: cover;
+  }
+
+  .post iframe {
+    width: 315px;
+    height: 180px;
+  }
+}
+
+@media (max-width: 425px) {
+  .card-img {
+    height: 50%;
+    display: inline-block;
+    object-fit: cover;
+  }
+
+  .slick-prev {
+    left: -15px !important;
+  }
+
+  .slick-next {
+    right: -10px !important;
+  }
+
+  .menu-column {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+/*SM*/
+@media (min-width: 576px) {
+  .nav-item {
+    font-size: 0.5rem;
+  }
+
+  .carousel {
+    height: 500px;
+  }
+
+  .carousel img {
+    height: 500px;
+  }
+
+  .carousel-caption {
+    height: 20%;
+  }
+
+  .carousel-caption h3 {
+    font-size: 1.5rem;
+  }
+}
+
+/*MD*/
+@media (min-width: 768px) {
+  .navbar-nav {
+    width: 85%;
+  }
+
+  .nav-link {
+    font-size: 1.25rem;
+  }
+
+  .search {
+    width: 40%;
+  }
+
+  .post iframe {
+    width: 520px;
+    height: 315px;
+  }
+}
+
+/*LG*/
+@media (min-width: 992px) {
+  .navbar-nav {
+    width: 75%;
+  }
+
+  .nav-link {
+    font-size: 1.25rem;
+  }
+
+  .search input {
+    width: 85%;
+  }
+
+  .carousel-caption h3 {
+    font-size: 1.75rem;
+  }
+}
+
+/*XL*/
+@media (min-width: 1200px) {
+  .navbar-nav {
+    width: 60%;
+  }
+
+  .nav-link {
+    font-size: 1.5rem;
+  }
+}
+
+/* Media Queries end */
+
+/* Admin Page */
+
+.admin-header {
+  height: 70px;
+  font-size: 24px;
+  background-color: #f8f9fa;
+  padding: 5px 10px 0px;
+  margin-bottom: 20px;
+}
+
+/* Admin Page Ends */
