@@ -176,6 +176,11 @@ footer h3 {
   outline: none;
 }
 
+.slick-prev::before,
+.slick-next::before {
+  color: #ffaa00 !important;
+}
+
 .common-title {
   color: #ffaa00;
   border-bottom: 2px solid #ffaa00;
