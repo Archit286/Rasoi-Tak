@@ -24,7 +24,7 @@ router.put("/:id", upload.any("photo"), async (req, res) => {
   }
   let newPost = {
     ...req.body,
-    image: process.env.MY_URL + req.body.title + ".jpg",
+    image: "/" + req.body.title + ".jpg",
     date: Date(),
   };
   await PostsDb.updatePost(newPost, req.params.id);

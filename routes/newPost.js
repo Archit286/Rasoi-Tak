@@ -17,7 +17,7 @@ router.post("/", upload.any("photo"), async (req, res) => {
   req.body.video = handleVideo(req.body.video);
   let newPost = {
     ...req.body,
-    image: process.env.MY_URL + req.body.title + ".jpg",
+    image: "/" + req.body.title + ".jpg",
     date: Date(),
   };
   if (req.body.title !== "") {
