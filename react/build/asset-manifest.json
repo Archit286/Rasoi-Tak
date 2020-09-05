@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/static/css/main.972cc6a7.chunk.css",
+    "main.js": "/static/js/main.96510255.chunk.js",
+    "main.js.map": "/static/js/main.96510255.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.405f4c79.js",
+    "runtime-main.js.map": "/static/js/runtime-main.405f4c79.js.map",
+    "static/css/2.c37ac416.chunk.css": "/static/css/2.c37ac416.chunk.css",
+    "static/js/2.06b08556.chunk.js": "/static/js/2.06b08556.chunk.js",
+    "static/js/2.06b08556.chunk.js.map": "/static/js/2.06b08556.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.96d81154e5b04a8fc55734437e1d5e7b.js": "/precache-manifest.96d81154e5b04a8fc55734437e1d5e7b.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/2.c37ac416.chunk.css.map": "/static/css/2.c37ac416.chunk.css.map",
+    "static/css/main.972cc6a7.chunk.css.map": "/static/css/main.972cc6a7.chunk.css.map",
+    "static/js/2.06b08556.chunk.js.LICENSE.txt": "/static/js/2.06b08556.chunk.js.LICENSE.txt",
+    "static/media/grilled pineapple.JPG": "/static/media/grilled pineapple.e26e8786.JPG",
+    "static/media/myimage.jpg": "/static/media/myimage.2ee7b3de.jpg",
+    "static/media/sago shots.JPG": "/static/media/sago shots.f22ad80d.JPG",
+    "static/media/slick-theme.css": "/static/media/slick.f97e3bbf.svg",
+    "static/media/waffle.JPG": "/static/media/waffle.f6478e1b.JPG"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.405f4c79.js",
+    "static/css/2.c37ac416.chunk.css",
+    "static/js/2.06b08556.chunk.js",
+    "static/css/main.972cc6a7.chunk.css",
+    "static/js/main.96510255.chunk.js"
+  ]
+}
