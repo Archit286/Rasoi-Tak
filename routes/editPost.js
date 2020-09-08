@@ -27,7 +27,12 @@ router.put("/:id", upload.any("photo"), async (req, res) => {
     image: "/" + req.body.title + ".jpg",
     date: Date(),
   };
-  await PostsDb.updatePost(newPost, req.params.id);
+  const data = await PostsDb.updatePost(newPost, req.params.id);
+  if (data.count === 1) {
+    res.send("Post Updated Successfully");
+  } else {
+    res.send("Post Could not be Updated");
+  }
 });
 
 function handleVideo(video) {

@@ -16,7 +16,6 @@ class AllPosts extends Component {
   };
 
   async handleDelete(title) {
-    console.log("Post Deleted Successfully");
     this.setState({
       posts: this.state.posts.filter(function (post) {
         return post.title !== title;

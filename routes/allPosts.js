@@ -20,8 +20,11 @@ router.delete("/:title", async (req, res) => {
       if (err) throw err;
     });
   }
-  await PostsDb.deletePost(req.params.title).then(() =>
-    console.log("successfully deleted post")
-  );
+  const data = await PostsDb.deletePost(req.params.title);
+  if (data.count === 1) {
+    res.send("Post deleted Successfully");
+  } else {
+    res.send("Post Could not be deleted");
+  }
 });
 module.exports = router;

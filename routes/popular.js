@@ -25,7 +25,12 @@ router.put("/", jsonParser, async (req, res) => {
     title: req.body.title,
     image: req.body.photo,
   };
-  await PopularDb.updatePost(newPost, req.body._id);
+  const data = await PopularDb.updatePost(newPost, req.body._id);
+  if (data.count === 1) {
+    res.send("Popular Posts Updated");
+  } else {
+    res.send("Popular Posts Update Failed");
+  }
 });
 
 module.exports = router;

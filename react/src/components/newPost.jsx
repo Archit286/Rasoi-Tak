@@ -86,9 +86,8 @@ class newPost extends Component {
   handleSubmit = async (e) => {
     e.preventDefault();
     const data = new FormData(e.target);
-    await axios
-      .post("/api/newPost", data)
-      .then((res) => console.log("post added successfully"));
+    await axios.post("/api/newPost", data);
+    this.props.history.push("/admin");
   };
 
   handleKeyPress = (e) => {

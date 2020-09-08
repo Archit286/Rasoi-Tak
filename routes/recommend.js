@@ -25,7 +25,12 @@ router.put("/", jsonParser, async (req, res) => {
     title: req.body.title,
     image: req.body.photo,
   };
-  await RecommendDb.updatePost(newPost, req.body._id);
+  const data = await RecommendDb.updatePost(newPost, req.body._id);
+  if (data.count === 1) {
+    res.send("Recommended Posts updated");
+  } else {
+    res.send("Recommended Posts update failed");
+  }
 });
 
 module.exports = router;

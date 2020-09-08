@@ -88,7 +88,7 @@ class PostsDb {
   static async addPost(newPost) {
     try {
       const result = await posts.insertOne(newPost);
-      return result.insertedId;
+      return result.insertedCount;
     } catch (e) {
       if (String(e).startsWith("MongoError: E11000 duplicate key error")) {
         return { error: "A post with the given title already exists." };
@@ -105,22 +105,20 @@ class PostsDb {
     };
     try {
       const result = await posts.updateOne(filter, updateDocument);
-      if (result.modifiedCount === 0) {
-        throw 404;
-      }
+      return { count: result.modifiedCount };
     } catch (e) {
-      console.error("Post to be modified not found");
+      console.error(`Unable to update the post: ${e}`);
+      return { error: e };
     }
   }
 
   static async deletePost(title) {
     try {
       const result = await posts.deleteOne({ title: title });
-      if (result.deletedCount == 0) {
-        throw 404;
-      }
+      return { count: result };
     } catch (e) {
-      console.error("Post to be deleted not found");
+      console.error(`Unable to delete the post: ${e}`);
+      return { error: e };
     }
   }
 }

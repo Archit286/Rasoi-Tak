@@ -33,11 +33,10 @@ class PopularDb {
     };
     try {
       const result = await popular.updateOne(filter, updateDocument);
-      if (result.modifiedCount === 0) {
-        throw 404;
-      }
+      return { count: result.modifiedCount };
     } catch (e) {
-      console.error("Post to be modified not found");
+      console.error(`Unable to update the post: ${e}`);
+      return { error: e };
     }
   }
 }

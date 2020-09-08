@@ -17,6 +17,7 @@ const PostsDb = require("./database/postsDb");
 const PopularDb = require("./database/popularDb");
 const RecommendDb = require("./database/recommendDb");
 const UserDb = require("./database/userDb");
+
 //routes
 var newPost = require("./routes/newPost");
 var allPosts = require("./routes/allPosts");
