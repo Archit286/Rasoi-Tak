@@ -20,7 +20,7 @@ router.post("/", upload.any("photo"), async (req, res) => {
   let newPost = {
     ...req.body,
     image: "/" + req.body.title + ".jpg",
-    date: Date(),
+    date: Date.now(),
   };
   var result = {};
   if (req.body.title !== "") {

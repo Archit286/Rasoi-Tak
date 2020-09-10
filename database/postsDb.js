@@ -16,7 +16,7 @@ class PostsDb {
 
   static async getAllPosts() {
     try {
-      const result = await posts.find().sort({ date: 1 }).toArray();
+      const result = await posts.find().sort({ date: -1 }).toArray();
       return result;
     } catch (e) {
       console.error(`Error occurred while searching for posts, ${e}.`);
@@ -62,7 +62,7 @@ class PostsDb {
     try {
       const result = await posts
         .find()
-        .sort({ date: 1 })
+        .sort({ date: -1 })
         .limit(8)
         .project(projection)
         .toArray();
