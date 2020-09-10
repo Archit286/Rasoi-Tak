@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
@@ -69,9 +70,9 @@ class AllPosts extends Component {
                 <tr key={post._id}>
                   <td>{post.title}</td>
                   <td>
-                    <a href={this.state.link + post._id}>
+                    <Link to={this.state.link + post._id}>
                       <Button variant="secondary">Edit</Button>
-                    </a>
+                    </Link>
                   </td>
                   <td>
                     <Button

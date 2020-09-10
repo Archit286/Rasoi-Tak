@@ -26,7 +26,13 @@ class menu extends Component {
       return <h4>No Posts Found</h4>;
     } else {
       return this.state.data.map((item) => (
-        <Col lg={3} md={4} xs={6} key={item._id} className="menu-column">
+        <Col
+          lg={3}
+          md={4}
+          xs={6}
+          key={item._id ? item._id : "0"}
+          className="menu-column"
+        >
           <Card post={item} />
         </Col>
       ));

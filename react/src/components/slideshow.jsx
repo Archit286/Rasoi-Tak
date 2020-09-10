@@ -3,33 +3,34 @@ import Carousel from "react-bootstrap/Carousel";
 import Pineapple from ".././images/grilled pineapple.JPG";
 import Waffle from ".././images/waffle.JPG";
 import Sago from ".././images/sago shots.JPG";
+import { Link } from "react-router-dom";
 
 const slideshow = () => {
   return (
     <Carousel className="mx-auto my-4">
       <Carousel.Item>
         <img className="d-block w-100" src={Pineapple} alt="Snacks" />
-        <a href="/menu/Snacks">
+        <Link to="/menu/Snacks">
           <Carousel.Caption>
             <h3>Satisfy your cravings with these mouth-watering snacks</h3>
           </Carousel.Caption>
-        </a>
+        </Link>
       </Carousel.Item>
       <Carousel.Item>
         <img className="d-block w-100" src={Waffle} alt="Desserts" />
-        <a href="/menu/Desserts">
+        <Link to="/menu/Desserts">
           <Carousel.Caption>
             <h3>Check out these mouth-watering desserts</h3>
           </Carousel.Caption>
-        </a>
+        </Link>
       </Carousel.Item>
       <Carousel.Item>
         <img className="d-block w-100" src={Sago} alt="Vrat Recipes" />
-        <a href="/menu/Vrat">
+        <Link to="/menu/Vrat">
           <Carousel.Caption>
             <h3>Try our vrat recipes this Navrati</h3>
           </Carousel.Caption>
-        </a>
+        </Link>
       </Carousel.Item>
     </Carousel>
   );

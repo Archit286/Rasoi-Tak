@@ -23,7 +23,17 @@ class Main extends Component {
       return (
         <Switch>
           <Route path="/post/:id" component={Post} />
-          <Route path="/menu/:tag?" component={Menu} />
+          <Route
+            path="/menu/:tag?"
+            render={(props) => {
+              const {
+                match: {
+                  params: { tag },
+                },
+              } = props;
+              return <Menu key={tag} {...props} />;
+            }}
+          />
           <Route path="/about" component={About} />
           <Route path="/" component={Home} />
         </Switch>

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
+import { LinkContainer } from "react-router-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faBars } from "@fortawesome/free-solid-svg-icons";
 import Logo from ".././images/logo.png";
@@ -11,46 +12,48 @@ class header extends Component {
     return (
       <React.Fragment>
         <Navbar collapseOnSelect expand="md">
-          <Navbar.Brand href="/">
-            <img src={Logo} alt="logo" />
-          </Navbar.Brand>
+          <LinkContainer to="/">
+            <Navbar.Brand>
+              <img src={Logo} alt="logo" />
+            </Navbar.Brand>
+          </LinkContainer>
           <Navbar.Toggle aria-controls="header-collapse">
             <FontAwesomeIcon icon={faBars} color="#ffaa00" />
           </Navbar.Toggle>
           <Navbar.Collapse id="header-collapse">
             <Nav fill className="ml-auto">
               <NavDropdown title="Menu" id="nav-dropdown">
-                <NavDropdown.Item eventKey="1.1" href="/menu/Quencher">
-                  Quencher
-                </NavDropdown.Item>
-                <NavDropdown.Item eventKey="1.2" href="/menu/Snacks">
-                  Snacks
-                </NavDropdown.Item>
-                <NavDropdown.Item eventKey="1.3" href="/menu/Breakfast">
-                  Breakfast
-                </NavDropdown.Item>
-                <NavDropdown.Item eventKey="1.4" href="/menu/Main Course">
-                  Main Course
-                </NavDropdown.Item>
-                <NavDropdown.Item eventKey="1.5" href="/menu/Cuisines">
-                  Cuisines
-                </NavDropdown.Item>
-                <NavDropdown.Item eventKey="1.6" href="/menu/Desserts">
-                  Desserts
-                </NavDropdown.Item>
-                <NavDropdown.Item eventKey="1.7" href="/menu/Vrat">
-                  Vrat Recipes
-                </NavDropdown.Item>
+                <LinkContainer to="/menu/Quencher" eventKey="1.1">
+                  <NavDropdown.Item>Quencher</NavDropdown.Item>
+                </LinkContainer>
+                <LinkContainer to="/menu/Snacks" eventKey="1.2">
+                  <NavDropdown.Item>Snacks</NavDropdown.Item>
+                </LinkContainer>
+                <LinkContainer eventKey="1.3" to="/menu/Breakfast">
+                  <NavDropdown.Item>Breakfast</NavDropdown.Item>
+                </LinkContainer>
+                <LinkContainer eventKey="1.4" to="/menu/Main Course">
+                  <NavDropdown.Item>Main Course</NavDropdown.Item>
+                </LinkContainer>
+                <LinkContainer eventKey="1.5" to="/menu/Cuisines">
+                  <NavDropdown.Item>Cuisines</NavDropdown.Item>
+                </LinkContainer>
+                <LinkContainer eventKey="1.6" to="/menu/Desserts">
+                  <NavDropdown.Item>Desserts</NavDropdown.Item>
+                </LinkContainer>
+                <LinkContainer eventKey="1.7" to="/menu/Vrat">
+                  <NavDropdown.Item>Vrat Recipes</NavDropdown.Item>
+                </LinkContainer>
               </NavDropdown>
               <Nav.Item>
-                <Nav.Link eventKey="2" href="/menu">
-                  All Recipes
-                </Nav.Link>
+                <LinkContainer eventKey="2" to="/menu">
+                  <Nav.Link>All Recipes</Nav.Link>
+                </LinkContainer>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link eventKey="3" href="/about">
-                  About
-                </Nav.Link>
+                <LinkContainer eventKey="3" to="/about">
+                  <Nav.Link>About</Nav.Link>
+                </LinkContainer>
               </Nav.Item>
               <div className="search">
                 <input

@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Header from "./adminHeader";
@@ -254,7 +254,8 @@ class newPost extends Component {
                     Add Tag
                   </Button>
                   <Form.Text className="text-muted">
-                    Remeber to add menu categories as tags
+                    Remeber to add menu categories as tags ( Quencher, Snacks,
+                    Breakfast, Main Course, Cuisines, Desserts, Vrat )
                   </Form.Text>
                 </Col>
               </Form.Group>

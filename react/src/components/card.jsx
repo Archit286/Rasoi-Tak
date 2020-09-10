@@ -1,5 +1,6 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
+import { Link } from "react-router-dom";
 
 const card = (props) => {
   const post = props.post;
@@ -11,9 +12,9 @@ const card = (props) => {
       <Card.Img src={post.image} alt={post.title} />
       <Card.Body>
         <Card.Title>{post.title}</Card.Title>
-        <a href={`/post/${post._id}`} className="cardbtn">
+        <Link to={`/post/${post._id}`} className="cardbtn">
           Read More
-        </a>
+        </Link>
       </Card.Body>
     </Card>
   );
