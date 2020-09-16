@@ -48,10 +48,10 @@ var clientConfig = {
       __isBrowser__: "true",
     }),
     new HtmlWebpackPlugin({
-      template: "./src/index.html",
+      template: "./src/template/index.html",
       filename: "public/index.html",
       scriptLoading: "defer",
-      favicon: "./src/favicon.ico",
+      favicon: "./src/template/favicon.ico",
     }),
     new MiniCssExtractPlugin(),
   ],
