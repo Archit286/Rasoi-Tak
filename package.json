@@ -4,7 +4,7 @@
   "description": "react app using webpack",
   "main": "index.js",
   "scripts": {
-    "start": "npm run build && node dist/server.js",
+    "start": "node dist/server.js",
     "build": "webpack --mode production"
   },
   "author": "",
