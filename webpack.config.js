@@ -49,7 +49,7 @@ var clientConfig = {
     }),
     new HtmlWebpackPlugin({
       template: "./src/template/index.html",
-      filename: "public/index.html",
+      filename: "public/file/index.html",
       scriptLoading: "defer",
       favicon: "./src/template/favicon.ico",
     }),

@@ -46,23 +46,27 @@ app.use("/api/site", site);
 app.use(express.static(path.join("server/uploads")));
 app.use(express.static(path.join("build")));
 app.get("/*", function (req, res) {
-  readFile(path.resolve("./build/public/index.html"), "utf-8", (err, data) => {
-    if (err) {
-      console.log(err);
-      return res.status(500).send("Cannot find HTML file");
+  readFile(
+    path.resolve("./build/public/file/index.html"),
+    "utf-8",
+    (err, data) => {
+      if (err) {
+        console.log(err);
+        return res.status(500).send("Cannot find HTML file");
+      }
+      const context = {};
+      const markup = ReactDOMServer.renderToString(
+        <StaticRouter context={context} location={req.url}>
+          <App />
+        </StaticRouter>
+      );
+      const html = data.replace(
+        '<div id="root"></div>',
+        `<div id="root">${markup}</div>`
+      );
+      return res.send(html);
     }
-    const context = {};
-    const markup = ReactDOMServer.renderToString(
-      <StaticRouter context={context} location={req.url}>
-        <App />
-      </StaticRouter>
-    );
-    const html = data.replace(
-      '<div id="root"></div>',
-      `<div id="root">${markup}</div>`
-    );
-    return res.send(html);
-  });
+  );
 });
 
 //Uncaught Error Handling
