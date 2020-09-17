@@ -14,7 +14,7 @@ router.get("/:str", async (req, res) => {
 });
 
 router.delete("/:title", async (req, res) => {
-  const link = "uploads/" + req.params.title + ".jpg";
+  const link = "server/uploads/" + req.params.title + ".jpg";
   if (existsSync(link)) {
     unlink(link, (err) => {
       if (err) throw err;

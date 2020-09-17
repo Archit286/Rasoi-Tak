@@ -1,11 +1,11 @@
 import { Router } from "express";
 var router = Router();
 import PostsDb from "../database/postsDb";
-import multer, { diskStorage } from "multer";
+import multer from "multer";
 
-var storage = diskStorage({
+var storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "uploads/");
+    cb(null, "server/uploads/");
   },
   filename: function (req, file, cb) {
     cb(null, req.body.title + ".jpg");

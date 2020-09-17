@@ -5,7 +5,7 @@ var router = Router();
 
 var storage = diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "uploads/");
+    cb(null, "server/uploads/");
   },
   filename: function (req, file, cb) {
     cb(null, req.body.title + ".jpg");
