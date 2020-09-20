@@ -1,18 +1,30 @@
-import React from "react";
+import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
-import Admin from "./webpages/admin";
-import Main from "./webpages/main";
 import "./App.css";
 
-const App = () => {
-  return (
-    <React.Fragment>
+class App extends Component {
+  state = {
+    main: "",
+    admin: "",
+  };
+
+  async componentDidMount() {
+    const { default: Main } = await import("./webpages/main");
+    const { default: Admin } = await import("./webpages/admin");
+    this.setState({
+      main: <Main />,
+      admin: <Admin />,
+    });
+  }
+
+  render() {
+    return (
       <Switch>
-        <Route path="/admin" component={Admin} />
-        <Route path="/" component={Main} />
+        <Route path="/admin">{this.state.admin}</Route>
+        <Route path="/">{this.state.main}</Route>
       </Switch>
-    </React.Fragment>
-  );
-};
+    );
+  }
+}
 
 export default App;
