@@ -22,7 +22,17 @@ class Main extends Component {
     if (this.state.str === "") {
       return (
         <Switch>
-          <Route path="/post/:id" component={Post} />
+          <Route
+            path="/post/:id"
+            render={(props) => {
+              const {
+                match: {
+                  params: { id },
+                },
+              } = props;
+              return <Post key={id} {...props} />;
+            }}
+          />
           <Route
             path="/menu/:tag?"
             render={(props) => {
