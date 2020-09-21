@@ -6,11 +6,12 @@ import { readFile } from "fs";
 import { config } from "dotenv";
 config();
 
-//Add React
+//Add SSR
 import React from "react";
 import ReactDOMServer from "react-dom/server";
 import App from "../src/App";
 import { StaticRouter } from "react-router-dom";
+import { ChunkExtractor, ChunkExtractorManager } from "@loadable/server";
 
 //database methods
 import PostsDb from "./database/postsDb";
@@ -46,27 +47,27 @@ app.use("/api/site", site);
 app.use(express.static(path.join("server/uploads")));
 app.use(express.static(path.join("build")));
 app.get("/*", function (req, res) {
-  readFile(
-    path.resolve("./build/public/file/index.html"),
-    "utf-8",
-    (err, data) => {
-      if (err) {
-        console.log(err);
-        return res.status(500).send("Cannot find HTML file");
-      }
-      const context = {};
-      const markup = ReactDOMServer.renderToString(
-        <StaticRouter context={context} location={req.url}>
-          <App />
-        </StaticRouter>
-      );
-      const html = data.replace(
-        '<div id="root"></div>',
-        `<div id="root">${markup}</div>`
-      );
-      return res.send(html);
+  readFile(path.resolve("./build/public/index.html"), "utf-8", (err, data) => {
+    if (err) {
+      console.log(err);
+      return res.status(500).send("Cannot find HTML file");
     }
-  );
+    const statsFile = path.resolve("./dist/loadable-stats.json");
+    const extractor = new ChunkExtractor({ statsFile });
+    const context = {};
+    const markup = ReactDOMServer.renderToString(
+      <StaticRouter context={context} location={req.url}>
+        <ChunkExtractorManager extractor={extractor}>
+          <App />
+        </ChunkExtractorManager>
+      </StaticRouter>
+    );
+    const html = data.replace(
+      '<div id="root"></div>',
+      `<div id="root">${markup}</div>`
+    );
+    return res.send(html);
+  });
 });
 
 //Uncaught Error Handling

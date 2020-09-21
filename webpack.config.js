@@ -2,6 +2,7 @@ var path = require("path");
 var webpack = require("webpack");
 var nodeExternals = require("webpack-node-externals");
 var HtmlWebpackPlugin = require("html-webpack-plugin");
+var LoadablePlugin = require("@loadable/webpack-plugin");
 var MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 var clientConfig = {
@@ -10,6 +11,7 @@ var clientConfig = {
     path: path.join(__dirname, "/build"),
     filename: "[name].bundle.js",
     chunkFilename: "[name].bundle.js",
+    publicPath: "/",
   },
   module: {
     rules: [
@@ -50,11 +52,12 @@ var clientConfig = {
     }),
     new HtmlWebpackPlugin({
       template: "./src/template/index.html",
-      filename: "public/file/index.html",
+      filename: "public/index.html",
       scriptLoading: "defer",
       favicon: "./src/template/favicon.ico",
     }),
     new MiniCssExtractPlugin(),
+    new LoadablePlugin(),
   ],
 };
 
@@ -104,6 +107,7 @@ var serverConfig = {
       __isBrowser__: "true",
     }),
     new MiniCssExtractPlugin(),
+    new LoadablePlugin(),
   ],
 };
 

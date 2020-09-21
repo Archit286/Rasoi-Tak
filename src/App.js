@@ -1,22 +1,22 @@
-import React, { Component } from "react";
+import React from "react";
 import { Route, Switch } from "react-router-dom";
-import Admin from "./webpages/admin";
-import Main from "./webpages/main";
+import loadable from "@loadable/component";
 import "./App.css";
 
-class App extends Component {
-  render() {
-    return (
-      <Switch>
-        <Route path="/admin">
-          <Admin />
-        </Route>
-        <Route path="/">
-          <Main />
-        </Route>
-      </Switch>
-    );
-  }
+const Admin = loadable(() => import("./webpages/admin"));
+const Main = loadable(() => import("./webpages/main"));
+
+function App() {
+  return (
+    <Switch>
+      <Route path="/admin">
+        <Admin />
+      </Route>
+      <Route path="/">
+        <Main />
+      </Route>
+    </Switch>
+  );
 }
 
 export default App;
