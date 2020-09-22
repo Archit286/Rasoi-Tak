@@ -2,6 +2,7 @@ var path = require("path");
 var webpack = require("webpack");
 var nodeExternals = require("webpack-node-externals");
 var HtmlWebpackPlugin = require("html-webpack-plugin");
+var CopyPlugin = require("copy-webpack-plugin");
 var LoadablePlugin = require("@loadable/webpack-plugin");
 var MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
@@ -55,6 +56,14 @@ var clientConfig = {
       filename: "public/index.html",
       scriptLoading: "defer",
       favicon: "./src/template/favicon.ico",
+    }),
+    new CopyPlugin({
+      patterns: [
+        "src/template/logo192.png",
+        "src/template/logo512.png",
+        "src/template/robots.txt",
+        "src/template/manifest.json",
+      ],
     }),
     new MiniCssExtractPlugin(),
     new LoadablePlugin(),
