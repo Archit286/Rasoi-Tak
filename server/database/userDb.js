@@ -1,4 +1,3 @@
-import e from "express";
 let users;
 
 class UserDb {
@@ -17,7 +16,6 @@ class UserDb {
     try {
       const result = await users.find({
         email: user.username,
-        password: user.password,
       });
       return result.toArray();
     } catch (e) {
