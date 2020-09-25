@@ -12,12 +12,6 @@ class login extends Component {
     password: "",
   };
 
-  handleKeyPress = (e) => {
-    if (e.key === "Enter") {
-      e.preventDefault();
-    }
-  };
-
   handlePasswordChange = (e) => {
     this.setState({ password: e.target.value });
   };
@@ -31,10 +25,8 @@ class login extends Component {
     if (!(this.state.email && this.state.password)) {
       this.props.setStatus(false);
     } else {
-      const { data } = await axios.get(
-        `/api/login/${this.state.email}/${this.state.password}`
-      );
-      this.props.setStatus(data.status);
+      const result = await axios.post("/api/login/", this.state);
+      this.props.setStatus(result.data.status, result.headers.xauthtoken);
     }
   };
 
@@ -62,7 +54,6 @@ class login extends Component {
                   placeholder="Enter your Email address"
                   autoComplete="username"
                   onChange={this.handleEmailChange}
-                  onKeyPress={this.handleKeyPress}
                 />
               </Form.Group>
               <Form.Group controlId="password">

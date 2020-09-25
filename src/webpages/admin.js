@@ -6,16 +6,17 @@ import Popular from "../components/popular";
 import EditPost from "../components/editPost";
 import Recommend from "../components/recommend";
 import Login from "../components/login";
+import axios from "axios";
 
 class Admin extends Component {
   state = {
     error: "",
   };
 
-  setStatus = (status) => {
-    sessionStorage.setItem("isUserLogged", status);
+  setStatus = (status, token) => {
     if (status) {
-      this.setState({ error: "" });
+      sessionStorage.setItem("isUserLogged", token);
+      this.setState({ error: "", token: token });
     } else {
       this.setState({ error: "Incorrect Username or Password" });
     }
@@ -23,7 +24,11 @@ class Admin extends Component {
 
   handlePage() {
     if (typeof window !== "undefined") {
-      if (JSON.parse(sessionStorage.getItem("isUserLogged"))) {
+      var status = sessionStorage.getItem("isUserLogged");
+      axios.defaults.headers.common["xauthtoken"] = sessionStorage.getItem(
+        "isUserLogged"
+      );
+      if (status) {
         return (
           <Switch>
             <Route path="/admin/recommend" component={Recommend} />

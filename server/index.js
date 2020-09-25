@@ -2,6 +2,7 @@ import { MongoClient } from "mongodb";
 import express, { json, urlencoded } from "express";
 import cors from "cors";
 import path from "path";
+import jwt from "jsonwebtoken";
 import { readFile } from "fs";
 import { config } from "dotenv";
 config();
@@ -32,16 +33,43 @@ const app = express();
 const port = process.env.PORT || 9000;
 const MongoDbURI = process.env.MONGO_DB_URI;
 
+//Verifying JWT
+var JWTverify = (req, res, next) => {
+  var flag = true;
+  if (req.url.startsWith("/api/")) {
+    const token = req.headers.xauthtoken;
+    if (typeof token !== "undefined") {
+      try {
+        var decoded = jwt.verify(token, process.env.JWT_KEY);
+        if (decoded.email !== "ritu@rasoi-tak") {
+          flag = false;
+        }
+      } catch (error) {
+        console.log(error);
+        flag = false;
+      }
+    } else {
+      flag = false;
+    }
+  }
+  if (flag) {
+    next();
+  } else {
+    res.status(403).send();
+  }
+};
+
 app.use(cors());
 app.use(json());
 app.use(urlencoded({ extended: false }));
+app.use("/api/site", site);
+app.use("/api/login", login);
+app.use(JWTverify);
 app.use("/api/newPost", newPost);
 app.use("/api/allPosts", allPosts);
 app.use("/api/editPost", editPost);
 app.use("/api/popular", popular);
 app.use("/api/recommend", recommend);
-app.use("/api/login", login);
-app.use("/api/site", site);
 
 //Static Files
 app.use(express.static(path.join("server/uploads")));
@@ -54,13 +82,15 @@ app.get("/*", function (req, res) {
     }
     const statsFile = path.resolve("./dist/loadable-stats.json");
     const extractor = new ChunkExtractor({ statsFile });
-    const context = {};
+    const context = {
+      status: 200,
+    };
     const markup = ReactDOMServer.renderToString(
-      <StaticRouter context={context} location={req.url}>
-        <ChunkExtractorManager extractor={extractor}>
+      <ChunkExtractorManager extractor={extractor}>
+        <StaticRouter context={context} location={req.url}>
           <App />
-        </ChunkExtractorManager>
-      </StaticRouter>
+        </StaticRouter>
+      </ChunkExtractorManager>
     );
     const html = data.replace(
       '<div id="root"></div>',

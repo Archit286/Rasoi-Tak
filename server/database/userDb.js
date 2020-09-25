@@ -15,7 +15,7 @@ class UserDb {
   static async findUser(user) {
     try {
       const result = await users.find({
-        email: user.username,
+        email: user.email,
       });
       return result.toArray();
     } catch (e) {

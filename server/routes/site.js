@@ -12,19 +12,15 @@ router.get("/", async (req, res) => {
   res.send(data);
 });
 
-router.get("/allpost", async (req, res) => {
-  const result = await postsDb.getAllPosts();
-  res.send(result);
-});
-
 router.get("/post/:id", async (req, res) => {
   const result = await postsDb.getPostById(req.params.id);
   res.send(result);
 });
 
-function handleArr(arr) {
-  return arr.split(",");
-}
+router.get("/allpost", async (req, res) => {
+  const result = await postsDb.getAllPosts();
+  res.send(result);
+});
 
 router.get("/tags/:tag", async (req, res) => {
   const arr = handleArr(req.params.tag);
@@ -39,5 +35,9 @@ router.get("/search/:str", async (req, res) => {
   const result = [...result1, ...result2];
   res.send(result);
 });
+
+function handleArr(arr) {
+  return arr.split(",");
+}
 
 export default router;

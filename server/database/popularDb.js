@@ -1,5 +1,4 @@
 import { ObjectId } from "bson";
-import e from "express";
 let popular;
 
 class PopularDb {
